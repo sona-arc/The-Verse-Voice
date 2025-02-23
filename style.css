@@ -1,19 +1,26 @@
+
+
+
+
+
 /* General styling */
 body {
     background-color: skyblue;
     margin: 0;
     font-family: Arial, sans-serif;
     text-align: center;
+    position: relative;
 }
 
 /* Navigation bar */
 nav {
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
+    padding: 15px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -25,13 +32,63 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: yellow;
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 120px;
+    padding: 50px;
+    position: relative;
+    z-index: 10; /* Higher than clouds & trees */
+}
+
+/* Add a semi-transparent background behind text */
+.hero h1 {
+    font-size: 40px;
+    color: white;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.hero p {
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: green;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: darkgreen;
 }
 
 /* Clouds */
@@ -42,6 +99,7 @@ nav ul li a {
     background: white;
     border-radius: 50px;
     box-shadow: 40px 15px 0 rgba(255, 255, 255, 0.8);
+    z-index: 5; /* Below text */
 }
 .cloud1 { top: 50px; left: 20%; }
 .cloud2 { top: 80px; left: 60%; }
@@ -53,6 +111,7 @@ nav ul li a {
     width: 100%;
     height: 150px;
     background: green;
+    z-index: 3;
 }
 
 /* Coconut trees */
@@ -62,30 +121,20 @@ nav ul li a {
     width: 100px;
     height: 200px;
     background: url('https://upload.wikimedia.org/wikipedia/commons/6/6d/Coconut_Tree.png') no-repeat center/contain;
+    z-index: 4;
 }
 .tree1 { left: 5%; }
 .tree2 { left: 20%; }
 .tree3 { right: 20%; }
 .tree4 { right: 5%; }
 
-/* Page content */
-main {
-    margin-top: 80px; /* Ensures content is below navigation bar */
-    padding: 50px;
-    min-height: 100vh; /* Ensures page grows with content */
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Lessons */
-.lesson {
+/* About & Contact Sections */
+#about, #contact {
     background: rgba(255, 255, 255, 0.9);
     margin: 50px auto;
     padding: 20px;
     width: 80%;
     border-radius: 10px;
-    min-height: 500px; /* Each section takes more space */
 }
 
 /* Footer */
@@ -95,8 +144,6 @@ footer {
     padding: 20px;
     width: 100%;
     text-align: center;
+    z-index: 10;
 }
-
-
-
 
