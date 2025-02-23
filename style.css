@@ -1,13 +1,12 @@
 /* General styling */
-body {
+
+    body {
     background-color: skyblue;
     margin: 0;
-    overflow: hidden;
-    position: relative;
-    height: 100vh;
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
 
 /* Navigation bar */
 nav {
@@ -67,14 +66,15 @@ nav ul li a {
 .tree3 { right: 20%; }
 .tree4 { right: 5%; }
 
-/* Lessons */
 .lesson {
     background: rgba(255, 255, 255, 0.8);
-    margin: 20px auto;
-    padding: 10px;
-    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    width: 60%;
     border-radius: 10px;
+    min-height: 300px; /* This ensures each section takes up space */
 }
+
 
 /* Footer */
 footer {
