@@ -185,3 +185,35 @@ body {
   color: black;
   z-index: 2;
 }
+.lesson-header {
+  margin-top: 100px;
+  text-align: center;
+  padding: 40px 20px;
+  color: #004d40;
+}
+
+.lesson-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.lesson-card {
+  background-color: #e1f5fe;
+  border: 2px solid #0077b6;
+  border-radius: 10px;
+  padding: 20px 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: #0077b6;
+  transition: 0.3s;
+}
+
+.lesson-card:hover {
+  background-color: #b3e5fc;
+  color: #004d40;
+}
