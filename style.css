@@ -5,204 +5,183 @@
   box-sizing: border-box;
 }
 
+/* Body Background */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #87CEFA, #E0F7FA); /* Sky blue */
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to top, #b3e5fc, #e1f5fe); /* Sky blue */
+  height: 100vh;
   overflow-x: hidden;
-  min-height: 200vh; /* Makes the page scrollable */
   position: relative;
-  padding-top: 60px;
 }
 
-/* Navigation */
-nav {
+/* Navbar */
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  background: #0077b6;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 10;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
+.navbar ul {
   list-style: none;
-  gap: 40px;
 }
 
-nav a {
+.navbar li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
   text-decoration: none;
-  color: #333;
   font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #007BFF;
+  font-size: 18px;
 }
 
 /* Hero Section */
 .hero {
+  padding-top: 100px;
   text-align: center;
-  padding: 100px 20px 80px;
-  position: relative;
-  color: #000;
+  color: #004d40;
+  height: 100vh;
 }
 
 .hero h1 {
-  font-size: 3em;
+  font-size: 48px;
   margin-bottom: 10px;
 }
 
+.hero .highlight {
+  color: #0077b6;
+}
+
 .subtitle {
-  font-size: 1.5em;
-  margin-bottom: 30px;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #006064;
 }
 
 .button {
   display: inline-block;
-  padding: 12px 25px;
-  background: #007BFF;
+  padding: 12px 24px;
+  background-color: #0077b6;
   color: white;
-  border-radius: 25px;
+  border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background: #0056b3;
+  background-color: #005f87;
 }
 
-/* What's New Section */
-.whats-new {
-  background: #fff;
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.whats-new h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.whats-new ul {
-  list-style-type: none;
-  padding-left: 20px;
-}
-
-.whats-new ul li {
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
-/* Nature Background Elements */
-body::before {
-  content: "";
+/* Nature Scene */
+.scene {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80px;
-  background: linear-gradient(to top, #2ecc71, transparent); /* Grass */
+  height: 250px;
+  overflow: hidden;
   z-index: -1;
 }
 
+/* Grass */
+.grass {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #4caf50;
+}
+
+/* Clouds */
 .cloud {
-  position: absolute;
+  width: 120px;
+  height: 60px;
   background: white;
-  border-radius: 50%;
-  z-index: 0;
-  opacity: 0.7;
+  border-radius: 60px;
+  position: absolute;
 }
 
-.cloud::after,
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: white;
+  border-radius: 60px;
+}
+
 .cloud::before {
-  content: '';
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-}
-
-.cloud1 {
-  width: 100px;
-  height: 60px;
-  top: 50px;
-  left: 10%;
-}
-
-.cloud1::before {
-  width: 60px;
-  height: 60px;
-  top: -20px;
-  left: 20px;
-}
-
-.cloud1::after {
   width: 80px;
   height: 80px;
-  top: -30px;
-  left: 40px;
-}
-
-.cloud2 {
-  width: 120px;
-  height: 70px;
-  top: 120px;
-  right: 15%;
-}
-
-.cloud2::before {
-  width: 70px;
-  height: 70px;
   top: -20px;
   left: 10px;
 }
 
-.cloud2::after {
-  width: 90px;
-  height: 90px;
-  top: -30px;
-  left: 30px;
+.cloud::after {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 60px;
+}
+
+.cloud1 {
+  top: 100px;
+  left: 50px;
+  animation: moveCloud 60s linear infinite;
+}
+
+.cloud2 {
+  top: 130px;
+  left: 300px;
+  animation: moveCloud 80s linear infinite;
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
 }
 
 /* Trees */
 .tree {
+  width: 40px;
+  height: 100px;
+  background: #8d6e63;
   position: absolute;
-  bottom: 80px;
-  width: 30px;
-  height: 80px;
-  background: #8B4513;
-  z-index: 1;
+  bottom: 100px;
 }
 
 .tree::after {
   content: "";
   position: absolute;
   top: -60px;
-  left: -35px;
+  left: -30px;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle at center, #228B22 40%, transparent 60%);
+  background: green;
   border-radius: 50%;
 }
 
-.tree1 { left: 5%; }
-.tree2 { left: 20%; }
-.tree3 { left: 75%; }
-.tree4 { left: 90%; }
+.tree1 { left: 10%; }
+.tree2 { left: 30%; }
+.tree3 { left: 60%; }
+.tree4 { left: 80%; }
 
 /* Watermark */
 .watermark {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
-  font-size: 1.5em;
-  color: rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  font-size: 24px;
+  opacity: 0.2;
+  color: black;
+  z-index: 2;
 }
-
