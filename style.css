@@ -1,143 +1,208 @@
-/* General styling */
-body {
-    background-color: skyblue;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    position: relative;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Navigation bar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #87CEFA, #E0F7FA); /* Sky blue */
+  overflow-x: hidden;
+  min-height: 200vh; /* Makes the page scrollable */
+  position: relative;
+  padding-top: 60px;
+}
+
+/* Navigation */
 nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 40px;
 }
 
-nav ul li {
-    margin: 0 20px;
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: yellow;
+nav a:hover {
+  color: #007BFF;
 }
 
 /* Hero Section */
 .hero {
-    margin-top: 120px;
-    padding: 50px;
-    position: relative;
-    z-index: 10; /* Higher than clouds & trees */
+  text-align: center;
+  padding: 100px 20px 80px;
+  position: relative;
+  color: #000;
 }
 
-/* Add a semi-transparent background behind text */
 .hero h1 {
-    font-size: 40px;
-    color: white;
-    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: inline-block;
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
-.hero p {
-    font-size: 20px;
-    color: white;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 8px 15px;
-    border-radius: 10px;
-    display: inline-block;
+.subtitle {
+  font-size: 1.5em;
+  margin-bottom: 30px;
 }
 
-/* Button styling */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    background: green;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 10px;
-    transition: 0.3s;
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #007BFF;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.btn:hover {
-    background: darkgreen;
+.button:hover {
+  background: #0056b3;
 }
 
-/* Clouds */
+/* What's New Section */
+.whats-new {
+  background: #fff;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.whats-new h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.whats-new ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.whats-new ul li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Nature Background Elements */
+body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #2ecc71, transparent); /* Grass */
+  z-index: -1;
+}
+
 .cloud {
-    position: absolute;
-    width: 150px;
-    height: 80px;
-    background: white;
-    border-radius: 50px;
-    box-shadow: 40px 15px 0 rgba(255, 255, 255, 0.8);
-    z-index: 5; /* Below text */
-}
-.cloud1 { top: 50px; left: 20%; }
-.cloud2 { top: 80px; left: 60%; }
-
-/* Grass */
-.grass {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 150px;
-    background: green;
-    z-index: 3;
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.7;
 }
 
-/* Coconut trees */
-.coconut-tree {
-    position: absolute;
-    bottom: 150px;
-    width: 100px;
-    height: 200px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/6/6d/Coconut_Tree.png') no-repeat center/contain;
-    z-index: 4;
+.cloud::after,
+.cloud::before {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
 }
+
+.cloud1 {
+  width: 100px;
+  height: 60px;
+  top: 50px;
+  left: 10%;
+}
+
+.cloud1::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 20px;
+}
+
+.cloud1::after {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 40px;
+}
+
+.cloud2 {
+  width: 120px;
+  height: 70px;
+  top: 120px;
+  right: 15%;
+}
+
+.cloud2::before {
+  width: 70px;
+  height: 70px;
+  top: -20px;
+  left: 10px;
+}
+
+.cloud2::after {
+  width: 90px;
+  height: 90px;
+  top: -30px;
+  left: 30px;
+}
+
+/* Trees */
+.tree {
+  position: absolute;
+  bottom: 80px;
+  width: 30px;
+  height: 80px;
+  background: #8B4513;
+  z-index: 1;
+}
+
+.tree::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -35px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at center, #228B22 40%, transparent 60%);
+  border-radius: 50%;
+}
+
 .tree1 { left: 5%; }
 .tree2 { left: 20%; }
-.tree3 { right: 20%; }
-.tree4 { right: 5%; }
+.tree3 { left: 75%; }
+.tree4 { left: 90%; }
 
-/* About & Contact Sections */
-#about, #contact {
-    background: rgba(255, 255, 255, 0.9);
-    margin: 50px auto;
-    padding: 20px;
-    width: 80%;
-    border-radius: 10px;
+/* Watermark */
+.watermark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.15);
+  z-index: 1;
 }
 
-/* Footer */
-footer {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-}
